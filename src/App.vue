@@ -1,6 +1,9 @@
 <template>
   <v-app>
-    <v-main> Vue Lib </v-main>
+    <v-main>
+      <v-icon small color="primary">fi-rr-settings</v-icon>
+      Vue Lib
+    </v-main>
   </v-app>
 </template>
 

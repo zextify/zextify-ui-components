@@ -1,6 +1,4 @@
-const { defineConfig } = require("@vue/cli-service");
-
-module.exports = defineConfig({
+module.exports = {
   transpileDependencies: ["vuetify"],
   css: {
     loaderOptions: {
@@ -31,4 +29,4 @@ module.exports = defineConfig({
       enableBridge: false,
     },
   },
-});
+};
