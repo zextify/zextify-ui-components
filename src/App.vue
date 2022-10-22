@@ -1,8 +1,6 @@
 <template>
   <v-app>
-    <v-main>
-      Vue Lib
-    </v-main>
+    <v-main> Vue Lib </v-main>
   </v-app>
 </template>
 

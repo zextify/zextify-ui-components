@@ -6,7 +6,7 @@ import vuetify from "./plugins/vuetify";
 
 Vue.config.productionTip = false;
 
-const app = new Vue({
+new Vue({
   i18n,
   vuetify,
   render: (h) => h(App),

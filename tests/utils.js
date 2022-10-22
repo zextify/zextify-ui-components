@@ -2,8 +2,6 @@ import { createLocalVue, mount, shallowMount } from "@vue/test-utils";
 
 import VueI18n from "vue-i18n";
 import Vuetify from "vuetify";
-import VueRouter from "vue-router";
-import store from "@/store";
 
 const messages = {
   br: require("@/locales/br.json"),
@@ -26,13 +24,8 @@ function buildDefaultOptions() {
     messages,
   });
 
-  localVue.use(VueRouter);
-  const router = new VueRouter();
-
   return {
     localVue,
-    router,
-    store,
     i18n,
     vuetify,
   };
