@@ -6,15 +6,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "rollup -c",
-    "lint": "vue-cli-service lint --no-fix",
-    "lint:fix": "vue-cli-service lint --fix",
     "build:es": "rollup -c --format es",
     "build:ssr": "rollup -c --format cjs",
     "build:unpkg": "rollup -c --format iife",
+    "test:unit": "vue-cli-service test:unit",
+    "test:e2e": "vue-cli-service test:e2e",
+    "lint": "vue-cli-service lint",
+    "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
+    "lint:fix": "vue-cli-service lint --fix",
     "prebuild": "rimraf ./dist",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "test:coverage": "vue-cli-service test:unit --coverage --forceExit --runInBand --expand --verbose --detectOpenHandles"
   },
   "main": "dist/zextify-ui-components.ssr.js",
   "module": "dist/zextify-ui-components.esm.js",
@@ -25,7 +29,12 @@
     "src/**/*.vue"
   ],
   "dependencies": {
-    "vue": "^2.6.14"
+    "core-js": "^3.8.3",
+    "vue": "^2.6.14",
+    "vue-i18n": "^8.26.3",
+    "vue-router": "^3.5.1",
+    "vuetify": "^2.6.0",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -44,9 +53,15 @@
     "@storybook/manager-webpack4": "^6.5.6",
     "@storybook/testing-library": "0.0.11",
     "@storybook/vue": "^6.5.6",
-    "@vue/cli-plugin-babel": "^4.5.13",
-    "@vue/cli-plugin-eslint": "^5.0.4",
-    "@vue/cli-service": "^4.5.13",
+    "@vue/cli-plugin-babel": "~5.0.0",
+    "@vue/cli-plugin-eslint": "~5.0.0",
+    "@vue/cli-plugin-router": "~5.0.0",
+    "@vue/cli-plugin-unit-jest": "~5.0.0",
+    "@vue/cli-plugin-vuex": "~5.0.0",
+    "@vue/cli-service": "~5.0.0",
+    "@vue/test-utils": "^1.1.3",
+    "@vue/vue2-jest": "^27.0.0-alpha.2",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
     "eslint": "^7.32.0",
@@ -56,13 +71,23 @@
     "eslint-plugin-vue": "^8.0.3",
     "husky": "^8.0.0",
     "minimist": "^1.2.5",
+    "jest": "^27.0.5",
+    "lint-staged": "^11.1.2",
     "prettier": "^2.4.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.52.8",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^5.1.9",
+    "sass": "^1.32.7",
+    "sass-loader": "^12.0.0",
+    "vue-cli-plugin-i18n": "~2.3.1",
+    "vue-cli-plugin-vuetify": "~2.5.8",
     "vue-loader": "^15.9.8",
-    "vue-template-compiler": "^2.6.14"
+    "vue-template-compiler": "^2.6.14",
+    "vuetify-loader": "^1.7.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
   },
   "peerDependencies": {
     "vue": "^2.6.14"
