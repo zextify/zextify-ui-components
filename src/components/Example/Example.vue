@@ -30,4 +30,5 @@ export default {
 };
 </script>
 
-<style src="./style.scss" lang="scss" scoped />
+<!--todo fix scss error on storybook-->
+<style />

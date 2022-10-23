@@ -1,12 +1,12 @@
-import SampleComponent from "./Sample.vue";
+import ExampleComponent from "./Example.vue";
 
 export default {
-  title: "Example/SampleComponent",
-  component: SampleComponent,
+  title: "Example/ExampleComponent",
+  component: ExampleComponent,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
     label: {
-      type: "string",
+      msg: "string",
     },
   },
 };
@@ -14,11 +14,11 @@ export default {
 // More on component templates: https://storybook.js.org/docs/vue/writing-stories/introduction#using-args
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { SampleComponent },
-  template: '<sample-component v-bind="$props" />',
+  components: { ExampleComponent },
+  template: '<example-component v-bind="$props" />',
 });
 
 export const Base = Template.bind({});
 Base.args = {
-  label: "Counter",
+  msg: "Test prop msg",
 };
