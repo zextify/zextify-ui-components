@@ -5,8 +5,8 @@ export default {
   component: ExampleComponent,
   // More on argTypes: https://storybook.js.org/docs/vue/api/argtypes
   argTypes: {
-    label: {
-      msg: "string",
+    msg: {
+      type: "string",
     },
   },
 };
