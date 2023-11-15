@@ -1,0 +1,25 @@
+name: CI
+on:
+  pull_request:
+    branches: [ "develop", "master" ]
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+          cache: 'npm'
+          cache-dependency-path: 'package-lock.json'
+
+      - name: install-dependencies
+        run: npm install
+
+      - name: lint
+        run: npm run lint
+
+      - name: test-unit
+        run: npm run test:coverage
